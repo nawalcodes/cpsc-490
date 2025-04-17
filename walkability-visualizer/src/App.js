@@ -40,15 +40,44 @@
 // }
 
 // export default App;
-import React from 'react';
-import WalkabilityMap from './pages/WalkabilityMap';
+// import React from 'react';
+// import WalkabilityMap from './pages/WalkabilityMap';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <WalkabilityMap />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// src/App.js
+// import React from "react";
+// import ChoroplethMap from "./components/ChoroplethMap";
+
+// function App() {
+//   return (
+//     <div>
+//       <h1>National Walkability Index</h1>
+//       <ChoroplethMap />
+//     </div>
+//   );
+// }
+
+// export default App;
+import React from "react";
+import USMap from "./components/USMap";
 
 function App() {
   return (
-    <div className="App">
-      <WalkabilityMap />
+    <div>
+      <h1>Static US Map</h1>
+      <USMap />
     </div>
   );
 }
 
 export default App;
+

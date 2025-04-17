@@ -1,6 +1,12 @@
 /* Required Leaflet CSS */
 @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 
+.tooltip {
+  font-family: sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s ease-in-out;
+}
+
 .App {
   text-align: center;
 }
