@@ -1,83 +1,45 @@
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import MapView from './pages/MapView';
-// import Home from './pages/Home';
-// import USMap from './components/USMap';
-// import React, { useState } from 'react';
-// import 'leaflet/dist/leaflet.css';
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/map" element={<MapView />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-// function App() {
-//   const [selectedIndex, setSelectedIndex] = useState('natwalkind');
-
-//   return (
-//     <div>
-//       <h1>US Walkability Map</h1>
-
-//       <label htmlFor="score-select">Select Walkability Index: </label>
-//       <select
-//         id="score-select"
-//         value={selectedIndex}
-//         onChange={(e) => setSelectedIndex(e.target.value)}
-//       >
-//         <option value="natwalkind">National Walkability Index</option>
-//         <option value="slc_score">Smart Location Composite</option>
-//         <option value="d4a_ranked">Destination Accessibility (D4A)</option>
-//         <option value="d2b_ranked">Employment Mix (D2B)</option>
-//       </select>
-
-//       <USMap selectedIndex={selectedIndex} />
-//     </div>
-//   );
-// }
-
-// export default App;
-// import React from 'react';
-// import WalkabilityMap from './pages/WalkabilityMap';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <WalkabilityMap />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// src/App.js
-// import React from "react";
-// import ChoroplethMap from "./components/ChoroplethMap";
-
-// function App() {
-//   return (
-//     <div>
-//       <h1>National Walkability Index</h1>
-//       <ChoroplethMap />
-//     </div>
-//   );
-// }
-
-// export default App;
-import React from "react";
+import React, { useState } from "react";
 import USMap from "./components/USMap";
 
-function App() {
+// Define available walkability models
+const WALKABILITY_MODELS = [
+  { id: "EPA", label: "EPA National Walkability Index" },
+  { id: "15MIN", label: "15-Minute City Model" },
+  { id: "WALKSCORE", label: "Walk Score" },
+  { id: "NDAI", label: "Neighborhood Destination Accessibility Index (NDAI)" }
+];
+
+const App = () => {
+  const [selectedModel, setSelectedModel] = useState("EPA");
+
   return (
-    <div>
-      <h1>Static US Map</h1>
-      <USMap />
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <h1>Walkability Visualizer</h1>
+
+      <label htmlFor="model-select" style={{ marginRight: "10px" }}>
+        Select a walkability model:
+      </label>
+      <select
+        id="model-select"
+        value={selectedModel}
+        onChange={(e) => setSelectedModel(e.target.value)}
+        style={{ padding: "6px 10px", fontSize: "14px" }}
+      >
+        {WALKABILITY_MODELS.map(model => (
+          <option key={model.id} value={model.id}>
+            {model.label}
+          </option>
+        ))}
+      </select>
+
+      <h2 style={{ marginTop: "20px" }}>
+        Showing: {WALKABILITY_MODELS.find(m => m.id === selectedModel)?.label}
+      </h2>
+
+      {/* Pass selected model to the map */}
+      <USMap model={selectedModel} />
     </div>
   );
-}
+};
 
 export default App;
-
