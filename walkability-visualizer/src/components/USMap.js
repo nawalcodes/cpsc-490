@@ -71,6 +71,74 @@ const USMap = ({ model }) => {
                         tooltip.transition().duration(300).style("opacity", 0);
                     });
 
+                // Add color legend for EPA using interpolatePuOr scale
+                const legendWidth = 200;
+                const legendHeight = 10;
+                const legendMargin = 20;
+
+                const legendGroup = svg.append("g")
+                    .attr("class", "legend")
+                    .attr("transform", `translate(${width - legendWidth - legendMargin},${height - 50})`);
+
+                // Create gradient definition
+                const defs = svg.append("defs");
+                const gradient = defs.append("linearGradient")
+                    .attr("id", "legend-gradient")
+                    .attr("x1", "0%")
+                    .attr("x2", "100%")
+                    .attr("y1", "0%")
+                    .attr("y2", "0%");
+
+                // Generate gradient stops using colorScale and interpolatePuOr
+                const numStops = 10;
+                const step = 1 / (numStops - 1);
+                const stops = d3.range(numStops).map(i => {
+                    const t = i * step;
+                    return {
+                        offset: `${t * 100}%`,
+                        color: d3.interpolatePuOr(1 - t)
+                    };
+                });
+
+                gradient.selectAll("stop")
+                    .data(stops)
+                    .enter()
+                    .append("stop")
+                    .attr("offset", d => d.offset)
+                    .attr("stop-color", d => d.color);
+
+                // Append rectangle using the gradient
+                legendGroup.append("rect")
+                    .attr("width", legendWidth)
+                    .attr("height", legendHeight)
+                    .style("fill", "url(#legend-gradient)")
+                    .style("stroke", "#999")
+                    .style("stroke-width", 0.5);
+
+                // Add min and max labels
+                legendGroup.append("text")
+                    .attr("x", 0)
+                    .attr("y", -4)
+                    .attr("text-anchor", "start")
+                    .attr("font-size", "10px")
+                    .text(min.toFixed(2));
+
+                legendGroup.append("text")
+                    .attr("x", legendWidth)
+                    .attr("y", -4)
+                    .attr("text-anchor", "end")
+                    .attr("font-size", "10px")
+                    .text(max.toFixed(2));
+
+                // Title
+                legendGroup.append("text")
+                    .attr("x", legendWidth / 2)
+                    .attr("y", -16)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "11px")
+                    .attr("font-weight", "bold")
+                    .text("EPA Walkability Index");
+
                 const filteredCities = cities.filter(city => city.population > 50000);
                 svg.selectAll("circle.city")
                     .data(filteredCities)
@@ -84,7 +152,7 @@ const USMap = ({ model }) => {
                         const coords = projection([d.coordinates.lon, d.coordinates.lat]);
                         return coords ? coords[1] : -1000;
                     })
-                    .attr("r", 2.5)
+                    .attr("r", 2)
                     .attr("fill", "black")
                     .attr("opacity", 0.7)
                     .on("mouseover", (event, d) => {
@@ -99,6 +167,115 @@ const USMap = ({ model }) => {
                     .on("mouseout", () => {
                         tooltip.transition().duration(300).style("opacity", 0);
                     });
+            });
+        }
+
+        else if (model === "WALK_SCORE") {
+            Promise.all([
+                d3.json("/counties-10m.json"),
+                d3.csv("/walk_scores.csv"),
+                d3.json("/us-cities.json")
+            ]).then(([usTopo, walkScoresRaw, cities]) => {
+                const counties = feature(usTopo, usTopo.objects.counties).features;
+                svg.selectAll("path")
+                    .data(counties)
+                    .join("path")
+                    .attr("d", path)
+                    .attr("fill", "#eee")
+                    .attr("stroke", "#999")
+                    .attr("stroke-width", 0.3);
+        
+                const walkScores = walkScoresRaw.map(d => ({
+                    lat: +d.lat,
+                    lon: +d.lon,
+                    score: +d.walk_score
+                }));
+        
+                const [min, max] = d3.extent(walkScores, d => d.score);
+                const colorScale = d3.scaleSequential(d3.interpolatePuOr).domain([max, min]);
+        
+                svg.selectAll("circle.walk-point")
+                    .data(walkScores)
+                    .join("circle")
+                    .attr("class", "walk-point")
+                    .attr("cx", d => projection([d.lon, d.lat])[0])
+                    .attr("cy", d => projection([d.lon, d.lat])[1])
+                    .attr("r", 4)
+                    .attr("fill", d => colorScale(d.score))
+                    .attr("opacity", 0.8)
+                    .on("mouseover", (event, d) => {
+                        tooltip.transition().duration(200).style("opacity", 0.9);
+                        tooltip.html(
+                            `<strong>Walk Score</strong><br/>Score: ${d.score.toFixed(0)}`
+                        )
+                        .style("left", event.pageX + 10 + "px")
+                        .style("top", event.pageY - 28 + "px");
+                    })
+                    .on("mousemove", event => {
+                        tooltip.style("left", event.pageX + 10 + "px")
+                               .style("top", event.pageY - 28 + "px");
+                    })
+                    .on("mouseout", () => {
+                        tooltip.transition().duration(300).style("opacity", 0);
+                    });
+        
+                // Legend
+                const legendWidth = 200;
+                const legendHeight = 10;
+                const legendMargin = 20;
+        
+                const legendGroup = svg.append("g")
+                    .attr("class", "legend")
+                    .attr("transform", `translate(${width - legendWidth - legendMargin},${height - 50})`);
+        
+                const defs = svg.append("defs");
+                const gradient = defs.append("linearGradient")
+                    .attr("id", "legend-gradient-walk")
+                    .attr("x1", "0%").attr("x2", "100%")
+                    .attr("y1", "0%").attr("y2", "0%");
+        
+                const numStops = 10;
+                const step = 1 / (numStops - 1);
+                const stops = d3.range(numStops).map(i => ({
+                    offset: `${i * step * 100}%`,
+                    color: d3.interpolatePuOr(1 - i * step)
+                }));
+        
+                gradient.selectAll("stop")
+                    .data(stops)
+                    .enter()
+                    .append("stop")
+                    .attr("offset", d => d.offset)
+                    .attr("stop-color", d => d.color);
+        
+                legendGroup.append("rect")
+                    .attr("width", legendWidth)
+                    .attr("height", legendHeight)
+                    .style("fill", "url(#legend-gradient-walk)")
+                    .style("stroke", "#999")
+                    .style("stroke-width", 0.5);
+        
+                legendGroup.append("text")
+                    .attr("x", 0)
+                    .attr("y", -4)
+                    .attr("text-anchor", "start")
+                    .attr("font-size", "10px")
+                    .text(min.toFixed(0));
+        
+                legendGroup.append("text")
+                    .attr("x", legendWidth)
+                    .attr("y", -4)
+                    .attr("text-anchor", "end")
+                    .attr("font-size", "10px")
+                    .text(max.toFixed(0));
+        
+                legendGroup.append("text")
+                    .attr("x", legendWidth / 2)
+                    .attr("y", -16)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "11px")
+                    .attr("font-weight", "bold")
+                    .text("Approx. Walk Score");
             });
         }
 
@@ -148,7 +325,7 @@ const USMap = ({ model }) => {
         }
     }, [model]);
 
-    return <svg ref={svgRef}></svg>;
+    return <div className="map-container"><svg ref={svgRef}></svg></div>;
 };
 
 export default USMap;
