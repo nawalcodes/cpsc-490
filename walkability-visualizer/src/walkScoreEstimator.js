@@ -5,10 +5,15 @@ import fs from "fs";
 import { distance, point } from "@turf/turf";
 import path from "path";
 
-// Configuration
-const POINTS = [
-  { lat: 47.608013, lon: -122.335167 }, // Example: downtown Seattle
-];
+// Load all US cities with population > 50,000
+const cities = JSON.parse(fs.readFileSync("../public/us-cities.json", "utf-8"))
+  .filter(city => city.population > 50000)
+  .map(city => ({
+    lat: city.coordinates.lat,
+    lon: city.coordinates.lon,
+    name: city.name,
+    state: city.admin1_code
+  }));
 
 const CATEGORIES = [
   {
@@ -45,7 +50,7 @@ const CATEGORIES = [
 ];
 
 const DISTANCE_BANDS = [400, 800, 1200, 1600, 2000];
-const BAND_SCORES = [5, 4, 3, 2, 1]; // Corresponding to distance bands
+const BAND_SCORES = [5, 4, 3, 2, 1];
 
 async function fetchAmenities(lat, lon, tag) {
   const [k, v] = tag.split("=");
@@ -87,7 +92,6 @@ async function computeWalkScore(point) {
       const data = await fetchAmenities(point.lat, point.lon, tag);
       allAmenities = allAmenities.concat(data);
     }
-    // filter excluded
     if (cat.exclude) {
       allAmenities = allAmenities.filter((a) => {
         const tagStr = Object.entries(a.tags || {})
@@ -99,26 +103,24 @@ async function computeWalkScore(point) {
     const score = scoreAmenities(point, allAmenities);
     total += cat.weight * score;
   }
-  return Math.min(Math.round((total / 30) * 100), 100); // Normalize
+  return Math.min(Math.round((total / 30) * 100), 100);
 }
 
 async function main() {
   const results = [];
-  for (const pt of POINTS) {
-    const score = await computeWalkScore(pt);
-    results.push({ lat: pt.lat, lon: pt.lon, walk_score: score });
-    console.log(`Point (${pt.lat}, ${pt.lon}) scored: ${score}`);
+  for (const city of cities) {
+    const score = await computeWalkScore(city);
+    results.push({ lat: city.lat, lon: city.lon, name: city.name, state: city.state, walk_score: score });
+    console.log(`${city.name}, ${city.state} scored: ${score}`);
   }
 
-  // Ensure public directory exists
   const outputDir = path.resolve("public");
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  // Save as CSV
-  const header = "lat,lon,walk_score";
-  const rows = results.map((r) => `${r.lat},${r.lon},${r.walk_score}`);
+  const header = "lat,lon,name,state,walk_score";
+  const rows = results.map((r) => `${r.lat},${r.lon},"${r.name}",${r.state},${r.walk_score}`);
   fs.writeFileSync(path.join(outputDir, "walk_scores.csv"), [header, ...rows].join("\n"));
   console.log("Saved results to public/walk_scores.csv");
 }

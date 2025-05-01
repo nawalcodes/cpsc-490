@@ -3,5 +3,10 @@
     "d3": "^7.9.0",
     "json": "^11.0.0",
     "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "jest": "^29.7.0"
   }
 }
