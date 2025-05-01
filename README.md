@@ -25,3 +25,13 @@ Users can explore how cities compare based on each metric and view visual patter
 ```bash
 git clone https://github.com/nawalcodes/cpsc-490.git
 cd cpsc-490
+```
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Start the development server
+```bash
+npm start
+```
+The app should open at http://localhost:3000
