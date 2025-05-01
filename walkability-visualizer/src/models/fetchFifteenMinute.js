@@ -3,36 +3,22 @@
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
- * Fetch Overpass API amenities for a given city and state
+ * Fetch Overpass API amenities for a given city using lat/lon
  */
 async function fetchAmenitiesForCity(city, state) {
+    const lat = city.coordinates.lat;
+    const lon = city.coordinates.lon;
+    const radius = 1200; // ~15-minute walking distance in meters
+
     const query = `
 [out:json][timeout:60];
-area["name"="${city}"]["is_in:state"="${state}"]["boundary"="administrative"]->.searchArea;
 (
-  node["amenity"="school"](area.searchArea);
-  way["amenity"="school"](area.searchArea);
-  relation["amenity"="school"](area.searchArea);
-
-  node["shop"~"supermarket|grocery|bakery"](area.searchArea);
-  way["shop"~"supermarket|grocery|bakery"](area.searchArea);
-  relation["shop"~"supermarket|grocery|bakery"](area.searchArea);
-
-  node["amenity"~"cinema|theatre|arts_centre|museum"](area.searchArea);
-  way["amenity"~"cinema|theatre|arts_centre|museum"](area.searchArea);
-  relation["amenity"~"cinema|theatre|arts_centre|museum"](area.searchArea);
-
-  node["amenity"~"restaurant|bar|pub|cafe"](area.searchArea);
-  way["amenity"~"restaurant|bar|pub|cafe"](area.searchArea);
-  relation["amenity"~"restaurant|bar|pub|cafe"](area.searchArea);
-
-  node["amenity"~"hospital|clinic|doctors|dentist|pharmacy"](area.searchArea);
-  way["amenity"~"hospital|clinic|doctors|dentist|pharmacy"](area.searchArea);
-  relation["amenity"~"hospital|clinic|doctors|dentist|pharmacy"](area.searchArea);
-
-  node["leisure"="park"](area.searchArea);
-  way["leisure"="park"](area.searchArea);
-  relation["leisure"="park"](area.searchArea);
+  node["amenity"="school"](around:${radius},${lat},${lon});
+  node["shop"~"supermarket|grocery|bakery"](around:${radius},${lat},${lon});
+  node["amenity"~"cinema|theatre|arts_centre|museum"](around:${radius},${lat},${lon});
+  node["amenity"~"restaurant|bar|pub|cafe"](around:${radius},${lat},${lon});
+  node["amenity"~"hospital|clinic|doctors|dentist|pharmacy"](around:${radius},${lat},${lon});
+  node["leisure"="park"](around:${radius},${lat},${lon});
 );
 out center;
 `;
@@ -62,7 +48,7 @@ out center;
         }).filter(e => e.lat && e.lon);
 
     } catch (error) {
-        console.error(`Failed to fetch amenities for ${city}, ${state}:`, error);
+        console.error(`Failed to fetch amenities for ${city.name}, ${state}:`, error);
         return [];
     }
 }
@@ -78,10 +64,10 @@ export async function fetchFifteenMinute(cityList = [], batchSize = 5) {
     for (let i = 0; i < cityList.length; i += batchSize) {
         const batch = cityList.slice(i, i + batchSize);
 
-        if (!Array.isArray(batch)) continue; // Ensure batch is an array
+        if (!Array.isArray(batch)) continue;
         const batchResults = await Promise.all(
             batch.map(async city => {
-                const amenities = await fetchAmenitiesForCity(city.name, city.admin1_code);
+                const amenities = await fetchAmenitiesForCity(city, city.admin1_code);
                 const uniqueTypes = new Set(amenities.map(a => a.type));
                 const completenessScore = uniqueTypes.size / 7; // 7 amenity categories
                 return {
@@ -92,7 +78,7 @@ export async function fetchFifteenMinute(cityList = [], batchSize = 5) {
         );
 
         results.push(...batchResults);
-        await sleep(2000); // Sleep 2 seconds between batches to avoid rate limiting
+        await sleep(5000); // Rate limit buffer
     }
 
     return results;
