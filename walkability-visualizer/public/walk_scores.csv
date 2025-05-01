@@ -1,0 +1,604 @@
+name,state,score
+North Richland Hills,TX,26
+Hoffman Estates,IL,100
+Near North Side,IL,100
+Palatine,IL,45
+Malden,MA,100
+Grand Rapids,MI,100
+Lansing,MI,100
+Maple Grove,MN,6
+Grand Island,NE,99
+Nashua,NH,48
+Parsippany,NJ,16
+Coney Island,NY,100
+Sheepshead Bay,NY,100
+Pensacola,FL,85
+Evansville,IN,20
+Gary,IN,64
+South Bend,IN,99
+Green Bay,WI,100
+Yuma,AZ,13
+Aliso Viejo,CA,77
+Lynwood,CA,61
+Pueblo,CO,100
+Sparks,NV,100
+Midland,TX,8
+South Jordan,UT,68
+West Jordan,UT,60
+Shoreline,WA,78
+Baltimore,MD,100
+Saint Joseph,MO,13
+Saint Peters,MO,100
+Rocky Mount,NC,30
+Moore,OK,19
+Columbia,SC,100
+Arlington,TX,58
+Garland,TX,26
+San Antonio,TX,100
+Chesapeake,VA,15
+Dale City,VA,100
+Richmond,VA,100
+Des Moines,IA,100
+Evanston,IL,100
+Chicopee,MA,19
+Elizabeth,NJ,92
+Lakewood,NJ,69
+Hempstead,NY,100
+Levittown,NY,33
+Mott Haven,NY,100
+Queens Village,NY,100
+Clearwater,FL,41
+Largo,FL,32
+Pine Hills,FL,53
+Kansas City,KS,38
+Flagstaff,AZ,100
+Compton,CA,36
+Glendora,CA,35
+Petaluma,CA,97
+Poway,CA,100
+Simi Valley,CA,100
+Universal City,CA,100
+Lakewood,CO,100
+Avondale,AZ,5
+Salem,OR,100
+Alafaya,FL,71
+San Tan Valley,AZ,0
+Mobile,AL,11
+East Pensacola Heights,FL,9
+Port Orange,FL,76
+Sanford,FL,90
+Spring Hill,FL,1
+Wellington,FL,52
+Lawrence,KS,100
+Sioux Falls,SD,60
+Bridgeport,CT,100
+Scottsdale,AZ,11
+Hemet,CA,29
+Mountain View,CA,100
+Riverside,CA,82
+Tulare,CA,11
+Watsonville,CA,100
+Provo,UT,100
+Florence-Graham,CA,53
+Enchanted Hills,NM,4
+Muncie,IN,11
+Brookline,MA,100
+Flint,MI,31
+Kalamazoo,MI,100
+Burnsville,MN,9
+Saint Cloud,MN,96
+West Coon Rapids,MN,6
+Middletown,NJ,100
+East Village,NY,100
+Fordham,NY,100
+Kings Bridge,NY,100
+Ozone Park,NY,100
+White Plains,NY,88
+Bethlehem,PA,100
+Rockville,MD,100
+Fayetteville,NC,29
+Enid,OK,27
+Cedar Park,TX,21
+Centreville,VA,100
+Roanoke,VA,100
+West Haven,CT,35
+East Chattanooga,TN,3
+Longview,TX,12
+Round Rock,TX,86
+Tyler,TX,38
+Council Bluffs,IA,36
+Sioux City,IA,100
+Orland Park,IL,100
+Framingham Center,MA,25
+Novi,MI,100
+Blaine,MN,48
+Brooklyn Park,MN,13
+Saint Paul,MN,100
+Schenectady,NY,100
+Staten Island,NY,100
+Lorain,OH,85
+Alhambra,CA,100
+Bellflower,CA,84
+Fontana,CA,100
+Gilroy,CA,100
+Newport Beach,CA,100
+Paramount,CA,16
+Santa Barbara,CA,100
+Santa Cruz,CA,100
+Ventura,CA,100
+Whittier,CA,24
+Enterprise,NV,9
+Bellevue,WA,100
+Bellingham,WA,100
+Honolulu,HI,100
+Decatur,AL,9
+Tuscaloosa,AL,100
+Brandon,FL,100
+Carol City,FL,33
+Coral Springs,FL,15
+North Port,FL,7
+Palm Beach Gardens,FL,9
+Tamarac,FL,13
+Marietta,GA,100
+Valdosta,GA,100
+Waukesha,WI,94
+Burbank,CA,100
+San Jose,CA,100
+Santa Clara,CA,100
+South Gate,CA,48
+West Covina,CA,89
+Westminster,CA,44
+Arvada,CO,100
+Rio Rancho,NM,23
+Santa Fe,NM,100
+Sunrise Manor,NV,10
+Redding,CA,100
+Tigard,OR,41
+Olympia,WA,100
+Royal Oak,MI,100
+Warren,MI,37
+Lincoln,NE,62
+Hoboken,NJ,100
+The Bronx,NY,100
+Joplin,MO,43
+Dayton,OH,100
+Hamilton,OH,28
+Midwest City,OK,16
+Oklahoma City,OK,100
+Charleston,SC,100
+Euless,TX,17
+Laredo,TX,100
+The Woodlands,TX,17
+Wichita Falls,TX,15
+Norfolk,VA,100
+Arlington Heights,IL,61
+Chicago Lawn,IL,36
+South Lawndale,IL,100
+Columbus,GA,44
+Springfield,IL,100
+Dundalk,MD,45
+St. Louis,MO,100
+Wilmington,NC,68
+Springfield,OH,37
+Bryan,TX,37
+Flower Mound,TX,1
+Missouri City,TX,4
+Pearland,TX,8
+Richardson,TX,100
+Kokomo,IN,21
+Saint Clair Shores,MI,23
+Sterling Heights,MI,5
+Duluth,MN,57
+Minnetonka Mills,MN,14
+Brooklyn,NY,100
+Levittown,PA,28
+Berkeley,CA,100
+Castro Valley,CA,100
+Chino,CA,18
+Gardena,CA,74
+Sacramento,CA,100
+Van Nuys,CA,90
+Boise,ID,100
+West Valley City,UT,24
+Spokane Valley,WA,58
+City of Milford (balance),CT,100
+Appleton,WI,100
+Catalina Foothills,AZ,1
+Brentwood,CA,40
+Delano,CA,6
+Livermore,CA,100
+Long Beach,CA,100
+San Leandro,CA,100
+Albuquerque,NM,100
+Longmont,CO,100
+Marysville,WA,98
+South Fulton,GA,0
+Winston-Salem,NC,100
+Edmond,OK,69
+Philadelphia,PA,100
+New South Memphis,TN,10
+Harlingen,TX,61
+New Braunfels,TX,44
+Danbury,CT,24
+Oak Lawn,IL,31
+Rogers Park,IL,100
+Medford,MA,100
+North Chicopee,MA,7
+Clinton Township,MI,3
+Livonia,MI,32
+Wayne,NJ,100
+Albany,NY,100
+Bayside,NY,100
+Allentown,PA,100
+Erie,PA,100
+Pittsburgh,PA,100
+Birmingham,AL,80
+Hoover,AL,27
+Miami,FL,100
+Cape Coral,FL,100
+Deltona,FL,4
+Fort Lauderdale,FL,100
+Jupiter,FL,40
+Pembroke Pines,FL,12
+Carmel,IN,100
+Bethesda,MD,100
+Ellicott City,MD,86
+Asheville,NC,100
+Kettering,OH,100
+Murfreesboro,TN,100
+Austin,TX,100
+Carrollton,TX,99
+Sugar Land,TX,3
+Portsmouth Heights,VA,42
+North Peoria,IL,11
+Detroit,MI,100
+Southfield,MI,22
+Cheektowaga,NY,100
+Oshkosh,WI,99
+Apple Valley,CA,7
+Arcadia,CA,54
+Highland,CA,34
+Rancho Cucamonga,CA,52
+Richmond,CA,53
+Kirkland,WA,100
+Little Rock,AR,39
+Hialeah,FL,43
+Margate,FL,17
+Ocala,FL,25
+Orlando,FL,100
+West Hollywood,FL,16
+Coon Rapids,MN,14
+New Rochelle,NY,61
+Columbia,MO,100
+Burlington,NC,15
+West Raleigh,NC,100
+Grand Prairie,TX,29
+McAllen,TX,36
+West Hartford,CT,57
+Bolingbrook,IL,60
+Owensboro,KY,29
+New Orleans,LA,100
+Scranton,PA,100
+Anaheim,CA,100
+Buena Park,CA,77
+Huntington Beach,CA,37
+Mira Mesa,CA,100
+Pico Rivera,CA,63
+Redondo Beach,CA,100
+South San Francisco,CA,100
+Victorville,CA,16
+El Paso,TX,66
+Bend,OR,100
+Ogden,UT,100
+Taylorsville,UT,100
+Kennewick,WA,37
+Renton,WA,100
+Financial District,NY,100
+Tucson,AZ,35
+Chico,CA,100
+East Los Angeles,CA,21
+Huntington Park,CA,87
+Lake Elsinore,CA,5
+Lodi,CA,72
+Menifee,CA,1
+San Bernardino,CA,26
+Stockton,CA,42
+Denver,CO,100
+North Las Vegas,NV,59
+Lubbock,TX,25
+Eugene,OR,100
+Everett,WA,100
+Frederick,MD,100
+Greenville,NC,13
+Vineland,NJ,44
+Kingsport,TN,31
+Allen,TX,45
+Corpus Christi,TX,41
+Killeen,TX,37
+Spring,TX,39
+Newport News,VA,13
+South Suffolk,VA,33
+Meriden,CT,100
+Haverhill,MA,40
+Canton,MI,59
+Westland,MI,76
+Minnetonka,MN,47
+Clifton,NJ,38
+Trenton,NJ,100
+West New York,NJ,100
+Amherst,NY,98
+Borough Park,NY,100
+Harlem,NY,100
+Richmond Hill,NY,100
+Akron,OH,100
+Kendall,FL,100
+Kissimmee,FL,100
+North Miami,FL,41
+Cicero,IL,52
+Miami Gardens,FL,33
+Palm Harbor,FL,4
+St. Petersburg,FL,83
+Janesville,WI,31
+Canoga Park,CA,100
+Elk Grove,CA,90
+Folsom,CA,68
+Lancaster,CA,100
+Novato,CA,33
+Oakland,CA,100
+Redwood City,CA,100
+Fort Collins,CO,100
+Sammamish,WA,0
+Tacoma,WA,100
+Morningside Heights,NY,100
+Towson,MD,100
+Norman,OK,78
+Franklin,TN,86
+Hendersonville,TN,32
+Victoria,TX,24
+Leesburg,VA,100
+Auburn,AL,100
+East Norwalk,CT,48
+Bloomington,IL,88
+West Town,IL,100
+Fall River,MA,69
+Framingham,MA,50
+Lawrence,MA,66
+Apple Valley,MN,100
+North Bergen,NJ,87
+Flatlands,NY,92
+Charlotte,NC,100
+Cincinnati,OH,100
+Rock Hill,SC,17
+Chattanooga,TN,100
+Knoxville,TN,100
+Georgetown,TX,100
+League City,TX,21
+Mesquite,TX,55
+Aurora,IL,37
+Buffalo,NY,100
+Canarsie,NY,84
+Manhattan,NY,100
+Bensalem,PA,100
+Poinciana,FL,40
+Athens,GA,100
+Smyrna,GA,100
+Olathe,KS,19
+Lafayette,LA,61
+Eau Claire,WI,100
+Casa Grande,AZ,19
+Peoria,AZ,45
+Bakersfield,CA,20
+Chino Hills,CA,3
+El Cajon,CA,83
+Hesperia,CA,14
+Irvine,CA,19
+San Rafael,CA,100
+San Ramon,CA,100
+Santa Monica,CA,100
+Temecula,CA,100
+Tracy,CA,53
+Saint George,UT,100
+Billings,MT,100
+Rapid City,SD,100
+Redmond,WA,100
+Yakima,WA,100
+Arden-Arcade,CA,88
+Colton,CA,46
+Cupertino,CA,100
+Merced,CA,35
+North Hollywood,CA,100
+San Mateo,CA,100
+Valencia,CA,14
+Vista,CA,100
+Yorba Linda,CA,72
+Meridian,ID,60
+Corvallis,OR,100
+Sandy,UT,57
+Bowie,MD,100
+Columbia,MD,28
+Glen Burnie,MD,100
+Nashville,TN,100
+Lewisville,TX,73
+Cedar Rapids,IA,47
+Des Plaines,IL,73
+Lincoln Park,IL,100
+Rockford,IL,90
+Lafayette,IN,49
+Lowell,MA,81
+New Bedford,MA,63
+Irvington,NJ,100
+Plainfield,NJ,45
+Union City,NJ,100
+Parkchester,NY,100
+Cordova,TN,17
+Dothan,AL,7
+Springdale,AR,44
+Daytona Beach,FL,100
+Plantation,FL,24
+Port Charlotte,FL,97
+West Palm Beach,FL,62
+Manhattan,KS,100
+Metairie,LA,50
+Madison,WI,100
+North La Crosse,WI,16
+Surprise,AZ,19
+Baldwin Park,CA,100
+Fresno,CA,35
+Glendale,CA,100
+Inglewood,CA,52
+Madera,CA,77
+Northridge,CA,100
+Rosemead,CA,88
+Torrance,CA,100
+Visalia,CA,89
+Colorado Springs,CO,100
+Idaho Falls,ID,18
+Bismarck,ND,84
+Salt Lake City,UT,100
+Federal Way,WA,100
+Vancouver,WA,100
+Cheyenne,WY,23
+East Harlem,NY,100
+Central City,AZ,95
+Boca Raton,FL,99
+Flagami,FL,92
+Lakeland,FL,38
+Lauderhill,FL,15
+Pinellas Park,FL,100
+The Hammocks,FL,80
+Skokie,IL,62
+Boston,MA,100
+Woodbury,MN,100
+East Flatbush,NY,100
+Parma,OH,78
+Reading,PA,17
+Independence,MO,93
+North Charleston,SC,26
+East Hampton,VA,14
+New Haven,CT,100
+Stratford,CT,61
+Davenport,IA,38
+Fort Wayne,IN,51
+Conway,AR,69
+Rogers,AR,100
+Doral,FL,46
+Fountainebleau,FL,30
+Brookhaven,GA,64
+Topeka,KS,42
+Wichita,KS,99
+Lake Charles,LA,24
+Shreveport,LA,19
+Fullerton,CA,100
+Garden Grove,CA,73
+Hanford,CA,40
+San Francisco,CA,100
+San Pedro,CA,100
+Santa Rosa,CA,100
+Woodland,CA,88
+Great Falls,MT,100
+South Boston,MA,100
+Edison,NJ,92
+Forest Hills,NY,100
+Washington Heights,NY,100
+Canton,OH,38
+Gastonia,NC,31
+High Point,NC,100
+Dallas,TX,100
+Pasadena,TX,13
+Pflugerville,TX,29
+Hamden,CT,11
+Champaign,IL,100
+Providence,RI,100
+Warwick,RI,12
+Tempe,AZ,100
+Alameda,CA,100
+Hacienda Heights,CA,27
+Hawthorne,CA,62
+Moreno Valley,CA,38
+Sherman Oaks,CA,45
+Thousand Oaks,CA,97
+Missoula,MT,100
+Springfield,OR,100
+Johns Creek,GA,7
+Center City,PA,100
+Uptown,IL,100
+Noblesville,IN,95
+Quincy,MA,100
+Ann Arbor,MI,100
+Newark,NJ,100
+Chinatown,NY,100
+Corona,NY,100
+Youngstown,OH,82
+Columbus,OH,100
+Broken Arrow,OK,100
+College Station,TX,100
+Irving,TX,17
+Pharr,TX,31
+Alexandria,VA,100
+Arlington,VA,100
+Hampton,VA,34
+Lynchburg,VA,100
+Waterloo,IA,63
+Irving Park,IL,100
+Naperville,IL,100
+Allapattah,FL,55
+Alpharetta,GA,100
+Bloomington,IN,100
+Hollywood,FL,75
+Jacksonville,FL,92
+Bowling Green,KY,23
+Pawtucket,RI,48
+West Allis,WI,100
+Gilbert,AZ,100
+Indio,CA,29
+La Mesa,CA,100
+Upland,CA,100
+Highlands Ranch,CO,13
+Ahwatukee Foothills,AZ,57
+Burien,WA,100
+Tri-Cities,WA,0
+Waltham,MA,100
+Dearborn Heights,MI,28
+Bayonne,NJ,51
+East Orange,NJ,62
+Astoria,NY,100
+Clay,NY,0
+East New York,NY,100
+Mount Vernon,NY,86
+Cleveland,OH,100
+Germantown,MD,44
+Durham,NC,100
+Alief,TX,9
+Portage Park,IL,100
+Carmichael,CA,33
+Clovis,CA,51
+Downey,CA,91
+Murrieta,CA,100
+Oxnard,CA,54
+Roseville,CA,100
+Sunnyvale,CA,100
+Turlock,CA,52
+Tustin,CA,100
+Centennial,CO,94
+Las Cruces,NM,61
+Nampa,ID,38
+Pocatello,ID,100
+Beaverton,OR,100
+Kent,WA,100
+East Hartford,CT,10
+Ames,IA,89
+Berwyn,IL,100
+Taunton,MA,32
+Farmington Hills,MI,10
+Manchester,NH,100
+Brownsville,NY,100
+South Ozone Park,NY,100
+Lakewood,OH,100
+Waldorf,MD,19
+Lee's Summit,MO,55
+South Vineland,NJ,20
+Memphis,TN,89
+Fort Worth,TX,34
+Montgomery,AL,46
+Lexington,KY,15
+Saint Charles,MO,45

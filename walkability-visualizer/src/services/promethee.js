@@ -112,7 +112,7 @@ async function main() {
   }
 
   fs.writeFileSync("fifteen-minute-scores.json", JSON.stringify(results, null, 2));
-  console.log("✅ Scores saved to fifteen-minute-scores.json");
+  console.log("Scores saved to fifteen-minute-scores.json");
 }
 
 main();
